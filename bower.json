@@ -1,0 +1,11 @@
+{
+  "name": "localstorage",
+  "description": "Wrapper for browsers localStorage and chrome.app.storage.local local storage implementations with sync interface.",
+  "main": [
+    "dist/localstorage.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vitoordaz/localstorage.git"
+  }
+}
