@@ -20,7 +20,9 @@
     "grunt": "latest",
     "grunt-cli": "latest",
     "grunt-contrib-jshint": "latest",
+    "grunt-bower-task": "latest",
     "grunt-contrib-requirejs": "latest",
-    "grunt-contrib-uglify": "latest"
+    "grunt-contrib-uglify": "latest",
+    "grunt-mocha-phantomjs": "latest"
   }
 }

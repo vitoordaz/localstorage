@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>localstorage test</title>
+  <link rel="stylesheet" type="text/css" href="../vendor/mocha.css"/>
+</head>
+<body>
+<div id="mocha"></div>
+
+<script type="text/javascript" src="../vendor/mocha.js"></script>
+
+<script type="text/javascript" src="../vendor/require.js"></script>
+
+<script type="text/javascript">
+  mocha.setup('bdd');
+
+  require.config({
+    baseUrl: '../src/js',
+    paths: {
+      should: '../../vendor/should'
+    }
+  });
+
+  require([
+    'test-localstorage.js'
+  ], function() {
+    if (window.mochaPhantomJS) {
+      mochaPhantomJS.run();
+    } else {
+      mocha.run();
+    }
+  });
+</script>
+</body>
+</html>

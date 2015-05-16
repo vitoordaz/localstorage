@@ -12,9 +12,11 @@ function here() {
 module.exports = function(grunt) {
   var pkg = grunt.file.readJSON(here('package.json'));
 
+  grunt.task.loadNpmTasks('grunt-bower-task');
   grunt.task.loadNpmTasks('grunt-contrib-jshint');
   grunt.task.loadNpmTasks('grunt-contrib-requirejs');
   grunt.task.loadNpmTasks('grunt-contrib-uglify');
+  grunt.task.loadNpmTasks('grunt-mocha-phantomjs');
 
   grunt.initConfig({
     pkg: pkg,
@@ -27,6 +29,17 @@ module.exports = function(grunt) {
         strict: true,
         indent: 2,
         maxlen: 80
+      }
+    },
+    bower: {
+      install: {
+        options: {
+          targetDir: '',
+          verbose: true,
+          layout: function() {
+            return 'vendor';
+          }
+        }
       }
     },
     requirejs: {
@@ -48,10 +61,17 @@ module.exports = function(grunt) {
         dest: here('dist', 'localstorage.min.js')
       }
     },
+    mocha_phantomjs: {
+      all: [
+        'test/runner.html'
+      ]
+    }
   });
 
   grunt.registerTask('default', [
+    'bower',
     'jshint',
+    'mocha_phantomjs',
     'requirejs',
     'uglify'
   ]);

@@ -7,5 +7,10 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:vitoordaz/localstorage.git"
+  },
+  "devDependencies": {
+    "requirejs": "latest",
+    "mocha": "latest",
+    "should": "latest"
   }
 }
