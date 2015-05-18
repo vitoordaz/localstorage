@@ -17,7 +17,7 @@ define(function() {
   var INIT_WAS_CALLED = false;
   var CACHE = {};
   var SUPPORT_LOCAL_STORAGE = !!window.localStorage;
-  var IS_CHROME_APP = chrome && chrome.storage && chrome.storage.local;
+  var IS_CHROME_APP = window.chrome && chrome.storage && chrome.storage.local;
 
   if (IS_CHROME_APP) {
     return {
