@@ -79,9 +79,9 @@ define(function() {
 
   return {
     init: defer,
-    clear: localStorage.clear.apply(localStorage),
-    setItem: localStorage.setItem.apply(localStorage),
-    getItem: localStorage.getItem.apply(localStorage),
-    removeItem: localStorage.removeItem.apply(localStorage)
+    clear: localStorage.clear.bind(localStorage),
+    setItem: localStorage.setItem.bind(localStorage),
+    getItem: localStorage.getItem.bind(localStorage),
+    removeItem: localStorage.removeItem.bind(localStorage)
   };
 });
