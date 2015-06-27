@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git@github.com:vitoordaz/localstorage.git"
   },
+  "dependencies": {
+    "underscore": "1.8.3"
+  },
   "devDependencies": {
     "requirejs": "latest",
     "mocha": "latest",

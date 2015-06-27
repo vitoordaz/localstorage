@@ -48,6 +48,12 @@ module.exports = function(grunt) {
           baseUrl: 'src/js',
           optimize: 'none',
           name: 'localstorage',
+          paths: {
+            underscore: '../../vendor/underscore'
+          },
+          exclude: [
+            'underscore'
+          ],
           out: 'dist/localstorage.js'
         }
       }

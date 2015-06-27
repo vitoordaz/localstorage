@@ -1,7 +1,7 @@
 /* jshint strict: true */
 /* globals define, localStorage, chrome, setTimeout */
 
-define(function() {
+define(['underscore'], function(_) {
   'use strict';
 
   var defer = function(func) {
@@ -79,9 +79,9 @@ define(function() {
 
   return {
     init: defer,
-    clear: localStorage.clear.bind(localStorage),
-    setItem: localStorage.setItem.bind(localStorage),
-    getItem: localStorage.getItem.bind(localStorage),
-    removeItem: localStorage.removeItem.bind(localStorage)
+    clear: _.bind(localStorage.clear, localStorage),
+    setItem: _.bind(localStorage.setItem, localStorage),
+    getItem: _.bind(localStorage.getItem, localStorage),
+    removeItem: _.bind(localStorage.removeItem, localStorage)
   };
 });
