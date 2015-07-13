@@ -30,7 +30,7 @@ define('localstorage',['underscore'], function(_) {
         });
       },
       clear: function(cb) {
-        if (!INIT_WAS_CALLED) {
+        if (!INIT_WAS_CALLED && !cb) {
           throw Error('localstorage.init was not called');
         }
         cb = cb || noop;
@@ -40,7 +40,7 @@ define('localstorage',['underscore'], function(_) {
         CACHE = {};
       },
       setItem: function(name, value, cb) {
-        if (!INIT_WAS_CALLED) {
+        if (!INIT_WAS_CALLED && !cb) {
           throw Error('localstorage.init was not called');
         }
         cb = cb || noop;
@@ -52,7 +52,7 @@ define('localstorage',['underscore'], function(_) {
         CACHE[name] = value;
       },
       getItem: function(name, cb) {
-        if (!INIT_WAS_CALLED) {
+        if (!INIT_WAS_CALLED && !cb) {
           throw Error('localstorage.init was not called');
         }
         cb = cb || noop;
@@ -65,7 +65,7 @@ define('localstorage',['underscore'], function(_) {
         return CACHE[name];
       },
       removeItem: function(name, cb) {
-        if (!INIT_WAS_CALLED) {
+        if (!INIT_WAS_CALLED && !cb) {
           throw Error('localstorage.init was not called');
         }
         cb = cb || noop;
