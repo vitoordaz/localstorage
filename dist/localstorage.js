@@ -4,13 +4,6 @@
 define('localstorage',['underscore'], function(_) {
   'use strict';
 
-  var defer = function(func) {
-    var args = Array.prototype.slice.call(arguments, 2);
-    return setTimeout(function() {
-      return func.apply(null, args);
-    }, 1);
-  };
-
   var noop = function() {};
 
   // Flag to indicate weather init function was called or not.
@@ -78,11 +71,30 @@ define('localstorage',['underscore'], function(_) {
   }
 
   return {
-    init: defer,
-    clear: _.bind(localStorage.clear, localStorage),
-    setItem: _.bind(localStorage.setItem, localStorage),
-    getItem: _.bind(localStorage.getItem, localStorage),
-    removeItem: _.bind(localStorage.removeItem, localStorage)
+    init: _.defer,
+    clear: function(cb) {
+      _.defer(function() {
+        localStorage.clear();
+        (cb || noop)();
+      });
+    },
+    setItem: function(key, value, cb) {
+      _.defer(function() {
+        localStorage.setItem(key, value);
+        (cb || noop)();
+      });
+    },
+    getItem: function(key, cb) {
+      _.defer(function() {
+        (cb || noop)(localStorage.getItem());
+      });
+    },
+    removeItem: function(key, cb) {
+      _.defer(function() {
+        localStorage.removeItem(key);
+        (cb || noop)();
+      });
+    }
   };
 });
 

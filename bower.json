@@ -1,5 +1,6 @@
 {
   "name": "localstorage",
+  "version": "0.1.0",
   "description": "Wrapper for browsers localStorage and chrome.app.storage.local local storage implementations with sync interface.",
   "main": [
     "dist/localstorage.js"

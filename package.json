@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "main": "dist/js/localstorage.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "devDependencies": {
     "grunt": "latest",
     "grunt-cli": "latest",
