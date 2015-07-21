@@ -86,7 +86,7 @@ define('localstorage',['underscore'], function(_) {
     },
     getItem: function(key, cb) {
       _.defer(function() {
-        (cb || noop)(localStorage.getItem());
+        (cb || noop)(localStorage.getItem(key));
       });
     },
     removeItem: function(key, cb) {
